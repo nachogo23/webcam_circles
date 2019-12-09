@@ -1,6 +1,8 @@
 # webcam_circleis
 Circle detection from online webcam images
 
+Repositori original: https://github.com/beta-robots/webcam_circles
+
 L'algorítme de la Transformada de Hough és una tècnica d'analisisis d'imatges vírtuals que permet detectar figures geometriques simples que puguin ser expressades matemàticament de forma precissa. És una tècnica ampliament utilitzada en el camp de la visió per computació o l'analisis i el processat d'imatges. La tècnica va ser presentada i patentada al 1962 per Paul Hough. En un principi la tècnica s'utilitzava només per la detecció de rectes i més tard es va ampliar el seu ús per figures més complexes com cercles i el·lipses.
 
 Per tenir una idea general de com funciona l'algorítme, podem fixar-nos en el cas de la detecció de rectes, doncs és el més simple. A la tranformada de Hough la idea principal es considerar les rectes pels seus paràmetres m i n (pendent i ordenada a l'origen) en comptes d'utilitzar els valors de x,y. Per rectes verticals però, els paràmetres m i n són indeterminats, per aquest motiu en general s'ulitzen les coordenades polars així a cada recta se li pot asiganr un parell (p, theta) únic. 
