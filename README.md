@@ -3,25 +3,27 @@ Circle detection from online webcam images
 
 Repositori original: https://github.com/beta-robots/webcam_circles
 
-L'algorítme de la Transformada de Hough és una tècnica d'analisisis d'imatges vírtuals que permet detectar figures geometriques simples que puguin ser expressades matemàticament de forma precissa. És una tècnica ampliament utilitzada en el camp de la visió per computació o l'analisis i el processat d'imatges. La tècnica va ser presentada i patentada al 1962 per Paul Hough. En un principi la tècnica s'utilitzava només per la detecció de rectes i més tard es va ampliar el seu ús per figures més complexes com cercles i el·lipses.
 
-Per tenir una idea general de com funciona l'algorítme, podem fixar-nos en el cas de la detecció de rectes, doncs és el més simple. A la tranformada de Hough la idea principal es considerar les rectes pels seus paràmetres m i n (pendent i ordenada a l'origen) en comptes d'utilitzar els valors de x,y. Per rectes verticals però, els paràmetres m i n són indeterminats, per aquest motiu en general s'ulitzen les coordenades polars així a cada recta se li pot asiganr un parell (p, theta) únic. 
+L’algoritme de la Transformada de Hough és una tècnica d’anàlisis d'imatges virtuals que permet detectar figures geomètriques simples que puguin ser expressades matemàticament de forma precisa. És una tècnica àmpliament utilitzada en el camp de la visió per computació o l’anàlisi i el processat d'imatges. La tècnica va ser presentada i patentada al 1962 per Paul Hough. En un principi la tècnica s'utilitzava només per la detecció de rectes i més tard es va ampliar el seu ús per figures més complexes com cercles i el·lipses.
 
-L'algoritme es basa en una matriu, anomenada acumulador, amb dimensions igual al número de paràmetres desconeguts de la equació que descriu la figura en questió. Pel cas d'una recta els paràmetres serien (m,n) o (p,theta) en coordenades polars.
+Per tenir una idea general de com funciona l’algoritme, podem fixar-nos en el cas de la detecció de rectes, doncs és el més simple. A la transformada de Hough la idea principal es considerar les rectes pels seus paràmetres m i n (pendent i ordenada a l'origen) en comptes d'utilitzar els valors de x,y. Per rectes verticals però, els paràmetres m i n són indeterminats, per aquest motiu en general es fan servir les coordenades polars així a cada recta se li pot assignar un parell (p, theta) únic.
 
-En el cas aqui treballat per la detecció de cercles fent servir la Transformada de Hough, els paràmetres que es passen com a argument per la funció HoughCircles() són: MIN_RADIUS, MAX_RADIUS, MIN_CIRCLE_DIST, HOUGH_ACCUM_RESOLUTION, CANNY_EDGE_TH, HOUGH_ACCUM_TH.
+L'algoritme es basa en una matriu, anomenada acumulador, amb dimensions igual al número de paràmetres desconeguts de la equació que descriu la figura en qüestió. Pel cas d'una recta els paràmetres serien (m,n) o (p,theta) en coordenades polars.
 
-Al repositori s'afegeixen algunes imatges a mode d'exemple per entendre l'influència dels paràmetres sobre la detecció de cercles.
+En el cas aquí treballat per la detecció de cercles fent servir la Transformada de Hough, els paràmetres que es passen com a argument per la funció HoughCircles() són: MIN_RADIUS, MAX_RADIUS, MIN_CIRCLE_DIST, HOUGH_ACCUM_RESOLUTION, CANNY_EDGE_TH, HOUGH_ACCUM_TH.
+
+Al repositori s'afegeixen algunes imatges a mode d'exemple per entendre la influència dels paràmetres sobre la detecció de cercles.
 
 MIN_RADIUS i MAX_RADIUS: determinen el radi mínim i màxim (en píxels) respectivament dels cercles que detectarà. Tunejant adequadament aquest paràmetre podem ser selectius amb les figures que volem identificar (imatge 1,2)
 
-MIN_CIRCLE_DIST: Aquest paràmetre permet determinar la distància mínima que ha d'existir entre el centre de dos circumferencies per que ambdues siguin detectades. Si fem aquest paràmetre molt petit generarem falsos resultats, doncs detectarà varies vegades el mateix cercle (imatge 3). D'altra banda si fem aquest numero suficientment gran només podrem detectar una circumferencia en tota la imatge (imatge 4).
+MIN_CIRCLE_DIST: Aquest paràmetre permet determinar la distància mínima que ha d'existir entre el centre de dos circumferències per que ambdues siguin detectades. Si fem aquest paràmetre molt petit generarem falsos resultats, doncs detectarà varies vegades el mateix cercle (imatge 3). D'altra banda si fem aquest numero suficientment gran només podrem detectar una circumferència en tota la imatge (imatge 4).
 
 HOUGH_ACCUM_RESOLUTION: Resolució de l'acumulador de Hough, en termes de l'invers de la relació de resolució de la imatge.
 
-CANNY_EDGE_TH: Limit del detector de cantonades (Canny algorithm). Si es fa molt gran el programa reconeixes cercles a molts punts, obtenim falsos resultats (iamtge 5).
+CANNY_EDGE_TH: Límit del detector de cantonades (Canny algorithm). Si es fa molt gran el programa reconeixes cercles a molts punts, obtenim falsos resultats (imatge 5).
 
-HOUGH_ACCUM_TH: Límit de l'acumulador per decidir la detecció del centre. Si el numero és molt gran (1000) no es detecta cap cercle. Si el fixem al valor mínim (1) es dónen falsos resultats entorn al cercle real (imatge 6).
+HOUGH_ACCUM_TH: Límit de l'acumulador per decidir la detecció del centre. Si el numero és molt gran (1000) no es detecta cap cercle. Si el fixem al valor mínim (1) es donen falsos resultats entorn al cercle real (imatge 6).
+
 
 Instruccions
 
